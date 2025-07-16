@@ -1,27 +1,86 @@
-# phoneScrapper
-This script reads a CSV with columns: Link, Name, Phone. It opens each link, closes any popup, clicks 'contact me', and extracts the phone number.
-Web Scraper with Selenium - README & Installation
-Installation Steps (Windows):
-1. Install Python from https://www.python.org (ensure to check "Add Python to PATH" during
-installation).
-2. Open Command Prompt (Win + R -> type: cmd -> Enter).
-3. Run the following to install dependencies:
- pip install selenium pandas tqdm
-4. Download ChromeDriver matching your Chrome version:
- - Find your version: chrome://settings/help
- - Download: https://chromedriver.chromium.org/downloads
- - Extract 'chromedriver.exe' and place it in the same folder as the script or add to your system
-PATH.
-Script Overview
-This script reads a CSV with columns: Link, Name, Phone.
-It opens each link, closes any popup, clicks 'contact me', and extracts the phone number.
-Features:
-- Handles popups with flexible matching (like "enter rentmen-eu", "accept", "ok", "close").
-- Uses a progress bar (tqdm).
-- Writes "Phone not found" if the number isn't found.
-- Saves results in 'contacts_updated.csv'.
-Sample contacts.csv Format
+### 📱 **phoneScrapper – Web Scraper with Selenium**
+
+A Python script that:
+
+* Reads a CSV file with contact links
+* Opens each link using Selenium
+* Closes popups and clicks the “contact me” button
+* Extracts the phone number (if available)
+* Saves results to a new CSV
+
+---
+
+### 📦 **Installation Steps (Windows)**
+
+1. **Install Python**
+
+   * Download from: [python.org](https://www.python.org)
+   * During install, check ✅ **"Add Python to PATH"**
+
+2. **Install Dependencies**
+
+   * Open **Command Prompt** (`Win + R` → type `cmd` → hit Enter)
+   * Run:
+
+     ```bash
+     pip install selenium pandas tqdm
+     ```
+
+3. **Install ChromeDriver**
+
+   * Find your Chrome version: `chrome://settings/help`
+   * Download matching ChromeDriver: [chromedriver.chromium.org](https://chromedriver.chromium.org/downloads)
+   * Extract `chromedriver.exe`:
+
+     * Option A: Place it in the **same folder** as the script
+     * Option B: Add it to your **system PATH**
+
+---
+
+### 🔍 **Script Overview**
+
+* **Input**: CSV file with columns:
+  `Link, Name, Phone`
+
+* **Functionality**:
+
+  * Opens each URL from the CSV
+  * Closes popups using flexible matching (e.g., buttons with text "enter rentmen-eu", "accept", "ok", "close")
+  * Clicks the "contact me" button
+  * Extracts the displayed phone number
+
+* **Output**:
+
+  * Writes phone numbers (or “Phone not found”) back to a new file:
+    `contacts_updated.csv`
+
+---
+
+### 🌟 **Features**
+
+* ✅ Handles multiple popup formats
+* ⏳ Displays a real-time progress bar (via `tqdm`)
+* ❌ Logs “Phone not found” if no number is found
+* 💾 Saves results automatically to `contacts_updated.csv`
+
+---
+
+### 📄 **Sample `contacts.csv` Format**
+
+```csv
 Link,Name,Phone
 https://example.com/profile1,John,
 https://example.com/profile2,Anna,
-You're ready to run the script!
+```
+
+---
+
+### 🚀 **You're Ready to Run the Script!**
+
+* Ensure `chromedriver.exe` is in place
+* Make sure your `contacts.csv` file is prepared correctly
+* Launch the script using Python in the terminal:
+
+  ```bash
+  python phoneScrapper.py
+  ```
